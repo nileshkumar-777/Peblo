@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'home_screen.dart';
+import 'story_buddy_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -53,7 +53,7 @@ class _PipsStoryBuddyScreenState extends State<PipsStoryBuddyScreen> {
     Future.delayed(const Duration(seconds: 4), () {
       if (mounted) {
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const HomeScreen()),
+          MaterialPageRoute(builder: (context) => const StoryBuddyScreen()),
         );
       }
     });
