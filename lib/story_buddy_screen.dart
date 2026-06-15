@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'story_popup.dart';
+import 'story_data.dart';
 
-class StoryBuddyScreen extends StatelessWidget {
+class StoryBuddyScreen extends ConsumerWidget {
   const StoryBuddyScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -36,10 +38,7 @@ class StoryBuddyScreen extends StatelessWidget {
               const Spacer(flex: 2), // Pushes the button more toward the bottom
               GestureDetector(
                 onTap: () {
-                  StoryPopup.show(
-                    context,
-                    "Once upon a time in a magical land, a friendly little robot named Pip discovered a glowing book hidden under an ancient tree.\n\nWhen Pip opened the book, the pages fluttered, and magical stories began to fly out like colorful butterflies! Pip invites you to catch one of these stories and embark on a wondrous adventure filled with new friends, exciting challenges, and happy endings.\n\nAre you ready to explore the magic?",
-                  );
+                  StoryPopup.show(context, pipsMagicalTale);
                 },
                 child: Container(
                   padding: const EdgeInsets.symmetric(

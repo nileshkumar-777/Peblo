@@ -1,11 +1,14 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'story_buddy_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
+
+final activeStarProvider = StateProvider.autoDispose<int>((ref) => -1);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -23,15 +26,15 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class PipsStoryBuddyScreen extends StatefulWidget {
+class PipsStoryBuddyScreen extends ConsumerStatefulWidget {
   const PipsStoryBuddyScreen({super.key});
 
   @override
-  State<PipsStoryBuddyScreen> createState() => _PipsStoryBuddyScreenState();
+  ConsumerState<PipsStoryBuddyScreen> createState() =>
+      _PipsStoryBuddyScreenState();
 }
 
-class _PipsStoryBuddyScreenState extends State<PipsStoryBuddyScreen> {
-  int _currentActiveStar = -1;
+class _PipsStoryBuddyScreenState extends ConsumerState<PipsStoryBuddyScreen> {
   Timer? _starTimer;
 
   @override
@@ -41,11 +44,9 @@ class _PipsStoryBuddyScreenState extends State<PipsStoryBuddyScreen> {
     // Animate the stars lighting up exactly in sync with the 4-second delay
     // (5 stars * 800ms = 4000ms / 4 seconds total)
     _starTimer = Timer.periodic(const Duration(milliseconds: 800), (timer) {
-      setState(() {
-        if (_currentActiveStar < 4) {
-          _currentActiveStar++;
-        }
-      });
+      if (ref.read(activeStarProvider) < 4) {
+        ref.read(activeStarProvider.notifier).state++;
+      }
     });
 
     // Simulate a loading delay of 4 seconds, then navigate to the home screen.
@@ -67,6 +68,8 @@ class _PipsStoryBuddyScreenState extends State<PipsStoryBuddyScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final currentActiveStar = ref.watch(activeStarProvider);
+
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -204,23 +207,23 @@ class _PipsStoryBuddyScreenState extends State<PipsStoryBuddyScreen> {
                       children: [
                         _buildGlowingStar(
                           Colors.yellowAccent,
-                          _currentActiveStar >= 0,
+                          currentActiveStar >= 0,
                         ),
                         _buildGlowingStar(
                           Colors.orangeAccent,
-                          _currentActiveStar >= 1,
+                          currentActiveStar >= 1,
                         ),
                         _buildGlowingStar(
                           Colors.pinkAccent,
-                          _currentActiveStar >= 2,
+                          currentActiveStar >= 2,
                         ),
                         _buildGlowingStar(
                           Colors.cyanAccent,
-                          _currentActiveStar >= 3,
+                          currentActiveStar >= 3,
                         ),
                         _buildGlowingStar(
                           Colors.greenAccent,
-                          _currentActiveStar >= 4,
+                          currentActiveStar >= 4,
                         ),
                       ],
                     ),

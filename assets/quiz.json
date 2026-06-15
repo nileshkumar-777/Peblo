@@ -1,0 +1,77 @@
+[
+  {
+    "question": "What was the name of the robot?",
+    "options": ["Pip", "Sammy", "Luna", "Chirpy"],
+    "answer": "Pip"
+  },
+  {
+    "question": "What colour was Pip's lost gear?",
+    "options": ["Red", "Green", "Blue", "Yellow"],
+    "answer": "Blue"
+  },
+  {
+    "question": "Where did Pip lose his gear?",
+    "options": [
+      "Whispering Woods",
+      "Rainbow Valley",
+      "Magic Castle",
+      "Sunny Beach"
+    ],
+    "answer": "Whispering Woods"
+  },
+  {
+    "question": "What was Pip building?",
+    "options": [
+      "Rocket Machine",
+      "Friendship Machine",
+      "Flying Car",
+      "Toy Maker"
+    ],
+    "answer": "Friendship Machine"
+  },
+  {
+    "question": "Who was the squirrel that helped Pip?",
+    "options": ["Sammy", "Luna", "Chirpy", "Max"],
+    "answer": "Sammy"
+  },
+  {
+    "question": "Which animal was Luna?",
+    "options": ["Rabbit", "Bird", "Squirrel", "Fox"],
+    "answer": "Rabbit"
+  },
+  {
+    "question": "Who told Pip where the gear was hidden?",
+    "options": ["Sammy", "Luna", "Chirpy", "Pip"],
+    "answer": "Chirpy"
+  },
+  {
+    "question": "Where was the blue gear found?",
+    "options": [
+      "Under golden leaves",
+      "In the river",
+      "Inside a cave",
+      "On a mountain"
+    ],
+    "answer": "Under golden leaves"
+  },
+  {
+    "question": "Near which tree was the gear hidden?",
+    "options": [
+      "Old Oak Tree",
+      "Apple Tree",
+      "Pine Tree",
+      "Cherry Tree"
+    ],
+    "answer": "Old Oak Tree"
+  },
+  {
+    "question": "What did Pip learn at the end of the story?",
+    "options": [
+      "Friendship and teamwork solve problems",
+      "Robots are faster than animals",
+      "Never go into the woods",
+      "Machines are more important than friends"
+    ],
+    "answer": "Friendship and teamwork solve problems"
+  }
+]
