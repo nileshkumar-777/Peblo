@@ -326,43 +326,26 @@ class _StoryReaderState extends State<StoryReader> {
                     ),
                   ),
                 ),
-                // Skip Button
+                // Small Skip Button
                 GestureDetector(
                   onTap: () {
                     _stop();
                     widget.onQuiz();
                   },
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 16,
-                    ),
+                    padding: const EdgeInsets.all(14),
                     decoration: BoxDecoration(
-                      color: Colors.lightBlueAccent.withOpacity(0.8),
-                      borderRadius: BorderRadius.circular(40),
+                      color: Colors.white.withOpacity(0.2),
+                      shape: BoxShape.circle,
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.6),
+                        color: Colors.white.withOpacity(0.5),
                         width: 2,
                       ),
                     ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          "Skip",
-                          style: GoogleFonts.fredoka(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                        const SizedBox(width: 4),
-                        const Icon(
-                          Icons.skip_next_rounded,
-                          color: Colors.white,
-                          size: 24,
-                        ),
-                      ],
+                    child: const Icon(
+                      Icons.skip_next_rounded,
+                      color: Colors.white,
+                      size: 28,
                     ),
                   ),
                 ),
